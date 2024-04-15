@@ -10,17 +10,18 @@ import retrofit2.http.Query
 interface UserService {
     companion object {
         private const val USERS = "users"
+        private const val USER_NAME = "username"
     }
 
     @GET(USERS)
     suspend fun getUsers(@Query("since") since: Int): List<User>
 
-    @GET("$USERS/{username}")
+    @GET("$USERS/{$USER_NAME}")
     suspend fun getUserDetail(@Path("username") username: String): UserDetail?
 
-    @GET("$USERS/{username}/repos")
+    @GET("$USERS/{$USER_NAME}/repos")
     suspend fun getRepositories(
-        @Path("username") username: String,
+        @Path(USER_NAME) username: String,
         @Query("sort") sort: String,
         @Query("order") order: String
     ): List<Repository>

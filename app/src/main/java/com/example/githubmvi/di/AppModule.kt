@@ -2,6 +2,7 @@ package com.example.githubmvi.di
 
 import com.example.githubmvi.BuildConfig
 import com.example.githubmvi.data.source.Endpoints.BASE_URL
+import com.example.githubmvi.data.source.UserService
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import dagger.Module
@@ -57,6 +58,12 @@ object AppModule {
             .baseUrl(BASE_URL)
             .addConverterFactory(converter)
             .build()
+    }
+
+    @Singleton
+    @Provides
+    fun provideUserService(retrofit: Retrofit): UserService {
+        return retrofit.create(UserService::class.java)
     }
 
 }

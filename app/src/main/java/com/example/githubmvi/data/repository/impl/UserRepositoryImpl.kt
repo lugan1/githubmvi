@@ -4,23 +4,38 @@ import com.example.githubmvi.data.model.Repository
 import com.example.githubmvi.data.model.User
 import com.example.githubmvi.data.model.UserDetail
 import com.example.githubmvi.data.repository.UserRepository
+import com.example.githubmvi.data.source.UserService
+import kotlinx.coroutines.CoroutineDispatcher
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
-class UserRepositoryImpl @Inject constructor(): UserRepository {
-
-    override suspend fun getUsers(): Result<List<User>> {
-        TODO("Not yet implemented")
+class UserRepositoryImpl @Inject constructor(
+    private val userService: UserService,
+    private val dispatcher: CoroutineDispatcher = Dispatchers.IO,
+): UserRepository {
+    override suspend fun getUsers(): Result<List<User>> = makeApiCall(dispatcher) {
+        userService.getUsers(since = 51234842)
     }
 
-    override suspend fun getUser(username: String): Result<UserDetail?> {
-        TODO("Not yet implemented")
+    override suspend fun getUser(username: String): Result<UserDetail?> = makeApiCall(dispatcher) {
+        userService.getUserDetail(username)
     }
 
     override suspend fun getRepositories(
         username: String,
         sort: String,
         order: String
-    ): Result<List<Repository>> {
-        TODO("Not yet implemented")
+    ): Result<List<Repository>> = makeApiCall(dispatcher) {
+        userService.getRepositories(username, sort, order)
+    }
+}
+
+suspend fun <T> makeApiCall(
+    dispatcher: CoroutineDispatcher,
+    call: suspend () -> T
+): Result<T> = runCatching {
+    withContext(dispatcher) {
+        call.invoke()
     }
 }
