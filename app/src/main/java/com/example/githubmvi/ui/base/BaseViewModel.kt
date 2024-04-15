@@ -34,6 +34,7 @@ abstract class BaseViewModel<Event: ViewEvent, UiState: ViewState, Effect: ViewS
         val effect = _effect.receiveAsFlow()
 
         init {
+            val test = ""
             subscribeToEvents()
         }
 
