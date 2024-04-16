@@ -18,8 +18,12 @@ interface ViewSideEffect
 
 const val SIDE_EFFECTS_KEY = "side-effects_key"
 
+/**
+ * Event: 사용자의 상호 작용을 나타내는 클래스 (예 : 사용자가 버튼을 클릭)
+ * UiState : 화면의 상태를 나타내는 클래스 (예 : 로딩 중, 데이터 로드 완료, 오류 상태)
+ * Effect : 화면의 상태 변경 외의 다른 작업을 나타내는 클래스 (예 : 네비게이션 이동, 토스트 메시지 표시, 다이얼로그 표시, 푸시 알림 표시 등)
+ * */
 abstract class BaseViewModel<Event: ViewEvent, UiState: ViewState, Effect: ViewSideEffect> : ViewModel() {
-
         abstract fun setInitialState(): UiState
         abstract fun handleEvents(event: Event)
 
@@ -34,7 +38,6 @@ abstract class BaseViewModel<Event: ViewEvent, UiState: ViewState, Effect: ViewS
         val effect = _effect.receiveAsFlow()
 
         init {
-            val test = ""
             subscribeToEvents()
         }
 
