@@ -1,8 +1,8 @@
-package com.example.githubmvi.data.model
+package com.example.githubmvi.data.model.response
 
 import com.squareup.moshi.Json
 
-data class Repository(
+data class RepositoryDto(
     @field:Json(name = "id") val id: Long,
     @field:Json(name = "name") val name: String,
     @field:Json(name = "description") val description: String?,

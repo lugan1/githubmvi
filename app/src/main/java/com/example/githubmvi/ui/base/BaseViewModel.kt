@@ -49,15 +49,23 @@ abstract class BaseViewModel<Event: ViewEvent, UiState: ViewState, Effect: ViewS
             }
         }
 
+
+        // Event를 설정하는 메서드
+        // Intent를 처리하는 메서드와 유사하게 동작
         fun setEvent(event: Event) {
             viewModelScope.launch { _event.emit(event) }
         }
 
+        // 현재의 UI 상태를 변경하는 메서드
+        // Model 클래스의 상태 변경 메서드와 유사하게 동작
         protected fun setState(reducer: UiState.() -> UiState) {
             val newState = viewState.value.reducer()
             _viewState.value = newState
         }
 
+
+        // Side Effect를 설정하는 메서드
+        // Intent -> Model -> View 의 사이클을 벗어난 비동기 작업이 완료된 후 UI 상태 변경 외의 작업을 수행할 때 사용
         protected fun setEffect(builder: () -> Effect) {
             val effectValue = builder()
             viewModelScope.launch { _effect.send(effectValue) }

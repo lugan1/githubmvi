@@ -1,8 +1,8 @@
 package com.example.githubmvi.data.repository.impl
 
-import com.example.githubmvi.data.model.Repository
-import com.example.githubmvi.data.model.User
-import com.example.githubmvi.data.model.UserDetail
+import com.example.githubmvi.data.model.response.RepositoryDto
+import com.example.githubmvi.data.model.response.User
+import com.example.githubmvi.data.model.response.UserDetailDto
 import com.example.githubmvi.data.repository.UserRepository
 import com.example.githubmvi.data.source.UserService
 import kotlinx.coroutines.CoroutineDispatcher
@@ -18,7 +18,7 @@ class UserRepositoryImpl @Inject constructor(
         userService.getUsers(since = 51234842)
     }
 
-    override suspend fun getUser(username: String): Result<UserDetail?> = makeApiCall(dispatcher) {
+    override suspend fun getUser(username: String): Result<UserDetailDto?> = makeApiCall(dispatcher) {
         userService.getUserDetail(username)
     }
 
@@ -26,7 +26,7 @@ class UserRepositoryImpl @Inject constructor(
         username: String,
         sort: String,
         order: String
-    ): Result<List<Repository>> = makeApiCall(dispatcher) {
+    ): Result<List<RepositoryDto>> = makeApiCall(dispatcher) {
         userService.getRepositories(username, sort, order)
     }
 }

@@ -9,7 +9,9 @@ import androidx.navigation.compose.rememberNavController
 fun AppNavigation() {
     val navController = rememberNavController()
     NavHost(
-        navController = navController, startDestination = Navigation.Routes.USERS) {
+        navController = navController,
+        startDestination = Navigation.Routes.USERS
+    ) {
         composable(route = Navigation.Routes.USERS) {
             UsersScreenDestination(navController)
         }

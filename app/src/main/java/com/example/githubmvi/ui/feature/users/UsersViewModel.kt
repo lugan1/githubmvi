@@ -12,15 +12,28 @@ import javax.inject.Inject
 class UsersViewModel @Inject constructor(
     private val repository: UserRepository
 ): BaseViewModel<UsersContract.Event, UsersContract.State, UsersContract.Effect>(){
-
-    override fun setInitialState(): UsersContract.State {
-        TODO("Not yet implemented")
-        // UI의 초기 상태를 설정하는 부분
+    init {
+        getUsers()
     }
 
+    // UI의 초기 상태를 설정하는 부분
+    override fun setInitialState(): UsersContract.State = UsersContract.State(
+        users = emptyList(),
+        isLoading = true,
+        isError = false
+    )
+
+    // 사용자에게 입력받은 Intent 를 처리하는 부분
     override fun handleEvents(event: UsersContract.Event) {
-        TODO("Not yet implemented")
-        // User 에게 입력받은 Intent 를 처리하는 부분
+        when(event) {
+            // 사용자가 유저를 선택했을 때
+            is UsersContract.Event.UserSelection -> setEffect {
+                UsersContract.Effect.Navigation.ToRepos(event.user.userId)
+            }
+
+            // 사용자가 오류화면에서 재시도를 눌렀을 때
+            is UsersContract.Event.Retry -> getUsers()
+        }
     }
 
     private fun getUsers() {

@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Github MVI</string>
+    <string name="users_list_header">Users from public Github API</string>
+    <string name="users_screen_top_bar_title">Github Users</string>
+    <string name="network_error_title">Oh no!</string>
+    <string name="network_error_description">A network error occured. Check your connection or try again</string>
+    <string name="network_error_retry_button_text">Try again</string>
+    <string name="users_screen_snackbar_loaded_message">Users are loaded.</string>
 </resources>

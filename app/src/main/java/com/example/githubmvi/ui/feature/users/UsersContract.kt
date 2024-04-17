@@ -1,6 +1,6 @@
 package com.example.githubmvi.ui.feature.users
 
-import com.example.githubmvi.data.model.User
+import com.example.githubmvi.data.model.response.User
 import com.example.githubmvi.ui.base.ViewEvent
 import com.example.githubmvi.ui.base.ViewSideEffect
 import com.example.githubmvi.ui.base.ViewState
