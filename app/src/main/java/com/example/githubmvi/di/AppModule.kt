@@ -16,9 +16,13 @@ import retrofit2.converter.moshi.MoshiConverterFactory
 import java.util.concurrent.TimeUnit
 import javax.inject.Singleton
 
+
+
+
 @Module
 @InstallIn(SingletonComponent::class)
 object AppModule {
+    private const val MAX_TIMEOUT_MILLIS = 60_000L
 
     @Singleton
     @Provides
@@ -34,8 +38,9 @@ object AppModule {
     @Provides
     fun provideHttpClient(): OkHttpClient {
         val builder = OkHttpClient.Builder()
-            .connectTimeout((1000 * 30), TimeUnit.MILLISECONDS)
-            .readTimeout((1000 * 30), TimeUnit.MILLISECONDS)
+            .connectTimeout(MAX_TIMEOUT_MILLIS, TimeUnit.MILLISECONDS)
+            .readTimeout(MAX_TIMEOUT_MILLIS, TimeUnit.MILLISECONDS)
+            .writeTimeout(MAX_TIMEOUT_MILLIS, TimeUnit.MILLISECONDS)
 
         if(BuildConfig.DEBUG) {
             val loggingInterceptor = HttpLoggingInterceptor().apply {
