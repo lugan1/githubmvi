@@ -1,6 +1,7 @@
 package com.example.githubmvi.ui.navigation
 
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocalProvider
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 
@@ -8,12 +9,16 @@ import androidx.navigation.compose.composable
 fun AppNavigation(
     navigator: MainNavController = rememberMainNavController()
 ) {
-    NavHost(
-        navController =navigator.navController,
-        startDestination = navigator.startDestination
+    CompositionLocalProvider(
+        LocalMainNavController provides navigator
     ) {
-        composable(route = Navigation.Routes.USERS) {
-            UsersScreenDestination(onNavigateToRepos = navigator::navigateToRepos)
+        NavHost(
+            navController = navigator.navController,
+            startDestination = navigator.startDestination
+        ) {
+            composable(route = Navigation.Routes.USERS) {
+                UsersScreenDestination()
+            }
         }
     }
 }
