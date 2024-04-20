@@ -9,7 +9,7 @@ import com.example.githubmvi.ui.feature.users.screen.UsersScreen
 
 @Composable
 fun UsersScreenDestination(
-    navController: NavController
+    onNavigateToRepos: (String) -> Unit,
 ) {
     val viewModel: UsersViewModel = hiltViewModel()
     UsersScreen(
@@ -19,6 +19,7 @@ fun UsersScreenDestination(
         onNavigationRequested = { navigationEffect ->
             if (navigationEffect is UsersContract.Effect.Navigation.ToRepos) {
                 //todo: navigate to repos
+                onNavigateToRepos(navigationEffect.userId)
             }
         }
     )
