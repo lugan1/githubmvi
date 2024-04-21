@@ -1,4 +1,4 @@
-package com.example.githubmvi.ui.feature.users.screen.component
+package com.example.githubmvi.ui.feature.users.component
 
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Text

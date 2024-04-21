@@ -11,7 +11,7 @@ data class User(
 )
 
 // Preview 용의 샘플 데이터 생성
-fun buildUserPreview() = User(
+fun buildSampleUser() = User(
     userId = "51234843",
     avatarUrl = "https://avatars.githubusercontent.com/myofficework000",
     htmlUrl = "https://github.com/51234843",

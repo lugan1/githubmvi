@@ -1,4 +1,4 @@
-package com.example.githubmvi.ui.feature.users.screen.component
+package com.example.githubmvi.ui.feature.users.component
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement

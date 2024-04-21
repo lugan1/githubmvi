@@ -1,4 +1,4 @@
-package com.example.githubmvi.ui.feature.users.screen.component
+package com.example.githubmvi.ui.feature.users.component
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -8,7 +8,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.githubmvi.data.model.response.User
-import com.example.githubmvi.data.model.response.buildUserPreview
+import com.example.githubmvi.data.model.response.buildSampleUser
 
 @Composable
 fun UsersList(
@@ -31,6 +31,6 @@ fun UsersList(
 @Preview(showBackground = true)
 @Composable
 fun UsersListPreview() {
-    val users = List(3) { buildUserPreview() }
+    val users = List(3) { buildSampleUser() }
     UsersList(users = users) {}
 }

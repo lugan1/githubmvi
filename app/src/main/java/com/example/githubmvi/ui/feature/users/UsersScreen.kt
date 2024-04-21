@@ -1,4 +1,4 @@
-package com.example.githubmvi.ui.feature.users.screen
+package com.example.githubmvi.ui.feature.users
 
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
@@ -15,8 +15,8 @@ import com.example.githubmvi.R
 import com.example.githubmvi.ui.feature.common.NetworkError
 import com.example.githubmvi.ui.feature.common.Progress
 import com.example.githubmvi.ui.feature.users.UsersContract
-import com.example.githubmvi.ui.feature.users.screen.component.UsersList
-import com.example.githubmvi.ui.feature.users.screen.component.UsersTopBar
+import com.example.githubmvi.ui.feature.users.component.UsersList
+import com.example.githubmvi.ui.feature.users.component.UsersTopBar
 import kotlinx.coroutines.flow.Flow
 
 @Composable

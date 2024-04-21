@@ -1,4 +1,4 @@
-package com.example.githubmvi.ui.feature.users.screen.component
+package com.example.githubmvi.ui.feature.users.component
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
@@ -19,7 +19,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.githubmvi.R
 import com.example.githubmvi.data.model.response.User
-import com.example.githubmvi.data.model.response.buildUserPreview
+import com.example.githubmvi.data.model.response.buildSampleUser
 import com.example.githubmvi.ui.feature.common.RoundedImage
 
 @Composable
@@ -77,5 +77,5 @@ fun UsersListItem(
 @Preview(showBackground = true)
 @Composable
 fun UsersListItemPreview() {
-    UsersListItem(user = buildUserPreview(), onItemClick = {})
+    UsersListItem(user = buildSampleUser(), onItemClick = {})
 }

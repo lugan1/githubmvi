@@ -14,3 +14,14 @@ data class UserDetailDto(
     @field:Json(name = "followers") val followers: Int,
     @field:Json(name = "following") val following: Int
 )
+
+fun buildSampleUserDetail() = UserDetailDto(
+    avatarUrl = "https://avatars.githubusercontent.com/myofficework000",
+    htmlUrl = "https://www.naver.com",
+    name = "MyOfficeWork",
+    location = "Seoul, Korea",
+    blogUrl = "https://myofficework.tistory.com",
+    publicRepos = 10,
+    followers = 20,
+    following = 30
+)

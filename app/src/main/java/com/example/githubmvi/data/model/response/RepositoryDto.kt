@@ -12,3 +12,14 @@ data class RepositoryDto(
     @field:Json(name = "language") val language: String?,
     @field:Json(name = "html_url") val url: String
 )
+
+fun buildSampleRepository() = RepositoryDto(
+    id = 1,
+    name = "github-mvi",
+    description = "Github MVI Sample",
+    watchers = 10,
+    forks = 20,
+    stars = 30,
+    language = "Kotlin",
+    url = "https://www.github.com/myofficework/github-mvi"
+)
