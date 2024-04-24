@@ -1,4 +1,4 @@
-package com.example.githubmvi.ui.navigation
+package com.example.githubmvi.ui.navigation.compose
 
 import androidx.compose.runtime.Composable
 import androidx.hilt.navigation.compose.hiltViewModel

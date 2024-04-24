@@ -1,4 +1,4 @@
-package com.example.githubmvi.ui.navigation
+package com.example.githubmvi.ui.navigation.controller
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
@@ -8,6 +8,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.NavOptions
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
+import com.example.githubmvi.ui.navigation.Navigation
 
 class MainNavController(
     val navController: NavHostController

@@ -1,4 +1,4 @@
-package com.example.githubmvi.ui.navigation
+package com.example.githubmvi.ui.navigation.controller
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.ProvidableCompositionLocal
