@@ -16,8 +16,6 @@ interface ViewState
 
 interface ViewSideEffect
 
-const val SIDE_EFFECTS_KEY = "side-effects_key"
-
 /**
  * Event: 사용자의 상호 작용을 나타내는 클래스 (예 : 사용자가 버튼을 클릭)
  * UiState : 화면의 상태를 나타내는 클래스 (예 : 로딩 중, 데이터 로드 완료, 오류 상태)

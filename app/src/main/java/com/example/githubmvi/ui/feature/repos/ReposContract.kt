@@ -23,7 +23,7 @@ class ReposContract {
 
     sealed class Effect : ViewSideEffect {
         sealed class Navigation : Effect() {
-            object Back : Navigation()
+            data object Back : Navigation()
         }
     }
 
